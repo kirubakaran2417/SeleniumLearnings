@@ -1,0 +1,17 @@
+//tagname[@attributename='value']
+
+
+
+//input[@value='Third Option' and @id='q4']
+
+//input[@name='email_to[]'][@value='1']
+
+//div[@id='right_col_top']//div//input[@id='user']
+
+//*[contains(text(),'Basic')]
+
+(//*[contains(text(),'Contact')])[4]
+
+starts-with
+
+ends-with

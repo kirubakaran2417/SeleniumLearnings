@@ -1,7 +1,13 @@
 package utilities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class ReusableMethods {
 
@@ -30,6 +36,23 @@ public class ReusableMethods {
     }
     //normal click method
     public void click(WebElement element) {
-        element.click();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+    }
+
+    //another way to click when we face stale element exception
+    public void clickUsingJavascriptExecutor(WebElement element) {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", element);
+    }
+    //normal sendkeys method
+    public void sendKeys(WebElement element, String value) {
+        element.sendKeys(value);
+    }
+
+    public void dropdownUsingVisibleText(WebElement element, String value) {
+        Select select = new Select(element);
+        select.selectByVisibleText(value);
     }
 }

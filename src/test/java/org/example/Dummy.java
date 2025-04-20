@@ -7,6 +7,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.Test;
 
+import java.util.List;
+
 public class Dummy {
 
     @Test
@@ -19,6 +21,7 @@ public class Dummy {
 //        driver.navigate().to("https://google.com");
 //        driver.navigate().refresh();
 //        //navigationAL METHODS
+
 //        driver.navigate().back();
 //        driver.navigate().forward();
         //Webdriver methods
@@ -42,6 +45,23 @@ public class Dummy {
 
         WebElement subject= driver.findElement(By.id("subject"));
         subject.sendKeys("hello");//this is the web
+
+        List<WebElement> listOfLinks= driver.findElements(By.tagName("a"));
+
+        //size
+        System.out.println("Total number of links: "+listOfLinks.size());
+
+        for(int i=0; i<listOfLinks.size(); i++){
+            if (listOfLinks.get(i).getText().equals("Basic Contact Form")){
+                listOfLinks.get(i).click();
+                break;
+            }
+        }
+
+        List<WebElement> ele= driver.findElements(By.xpath("//div[@id='left_col_top']//ul//li//a"));
+        //total no links
+        int totalLinks = ele.size();
+        System.out.println("Total number of links: "+totalLinks);
     }
 
     private static WebDriver getWebDriver() {

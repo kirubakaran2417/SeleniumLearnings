@@ -1,17 +1,30 @@
 //tagname[@attributename='value']
 
-
-
 //input[@value='Third Option' and @id='q4']
 
 //input[@name='email_to[]'][@value='1']
 
 //div[@id='right_col_top']//div//input[@id='user']
 
-//*[contains(text(),'Basic')]
+//(//a[contains(text(),'Contact')])[4]
 
-(//*[contains(text(),'Contact')])[4]
+starts-with-//div[starts-with(@id,'right')]
 
-starts-with
+ends-with-//div[ends-with(@id,'right')]
 
-ends-with
+css-selector
+
+1.if the element is having id then use #idname. if the element is having class then use .classname
+==>syntax-->tagname#idvalue
+input#subject
+tagname.classname
+
+tagname[attributename='value'][attributename2='value2']
+
+tagname[@attributename='value']>tagname>tagname
+
+//*,$
+
+substring in css-tagname[attributename*='value']
+startswith in css-tagname[attributename^='value']
+endswith in css-tagname[attributename$='value']

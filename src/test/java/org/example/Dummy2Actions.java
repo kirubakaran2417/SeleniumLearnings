@@ -24,6 +24,8 @@ public class Dummy2Actions {
         WebElement droppable = driver.findElement(By.id("droppable"));
 
         actions.clickAndHold(draggable).moveToElement(droppable).release(droppable).build().perform();
+
+        actions.doubleClick().build().perform();
     }
 
     private static WebDriver getWebDriver() {
